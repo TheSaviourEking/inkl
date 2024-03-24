@@ -1,0 +1,39 @@
+{
+  "name": "inkl",
+  "version": "1.0.0",
+  "description": "Inkl: Your personalized news companion. Stay informed on what matters to you with a clutter-free interface and customizable filters. ✨",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "connect-session-sequelize": "^7.1.7",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "csurf": "^1.11.0",
+    "debug": "^4.3.4",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.1",
+    "express-async-errors": "^3.1.1",
+    "express-session": "^1.18.0",
+    "http-errors": "^2.0.0",
+    "morgan": "^1.10.0",
+    "per-env": "^1.0.2",
+    "pg": "^8.11.3",
+    "pg-hstore": "^2.3.4",
+    "pug": "^3.0.2",
+    "sequelize": "^6.37.1",
+    "sequelize-cli": "^6.6.2"
+  },
+  "devDependencies": {
+    "dotenv-cli": "^7.4.1",
+    "jest": "^29.7.0",
+    "nodemon": "^3.1.0",
+    "pug-cli": "^1.0.0-alpha6",
+    "sqlite3": "^5.1.7"
+  }
+}
