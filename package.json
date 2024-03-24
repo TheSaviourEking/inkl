@@ -4,7 +4,10 @@
   "description": "Inkl: Your personalized news companion. Stay informed on what matters to you with a clutter-free interface and customizable filters. ✨",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "per-env",
+    "start:development": "nodemon bin/www",
+    "start:production": "NODE_ENV=production nodemon bin/www"
   },
   "keywords": [],
   "author": "",
@@ -20,6 +23,7 @@
     "express": "^4.19.1",
     "express-async-errors": "^3.1.1",
     "express-session": "^1.18.0",
+    "helmet": "^7.1.0",
     "http-errors": "^2.0.0",
     "morgan": "^1.10.0",
     "per-env": "^1.0.2",
