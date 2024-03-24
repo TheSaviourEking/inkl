@@ -6,9 +6,9 @@ Inkl is your personalized news curator, designed to cut through the noise and de
 
 Inkl focuses on providing a user-friendly and informative news experience:
 
-* **Curated for You (h3):**  No more endless scrolling through irrelevant news.  Tell Inkl your interests (customization coming soon!), and we'll filter articles based on your preferences to deliver a news feed that's truly yours.
-* **Clean & Focused (h3):**  Inkl prioritizes a clutter-free interface, letting you focus on the content that matters. Read articles without distractions and delve deeper into the stories that pique your interest.
-* **Stay Informed, Stay Engaged (h3):**  Inkl keeps you up-to-date on the latest happenings without information overload. Get the news you need, presented in a way that's easy to digest.
+* **Curated for You:**  No more endless scrolling through irrelevant news.  Tell Inkl your interests (customization coming soon!), and we'll filter articles based on your preferences to deliver a news feed that's truly yours.
+* **Clean & Focused:**  Inkl prioritizes a clutter-free interface, letting you focus on the content that matters. Read articles without distractions and delve deeper into the stories that pique your interest.
+* **Stay Informed, Stay Engaged:**  Inkl keeps you up-to-date on the latest happenings without information overload. Get the news you need, presented in a way that's easy to digest.
 
 ## Getting Started
 
