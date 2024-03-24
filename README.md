@@ -1,5 +1,3 @@
-Here's a rewritten README incorporating h1, h2, and h3 tags for improved readability and SEO:
-
 # Inkl: Dive Deeper into Your News
 
 Inkl is your personalized news curator, designed to cut through the noise and deliver the stories that matter most to you.  Imagine a news experience that learns your preferences and surfaces articles that spark your curiosity. That's Inkl.
