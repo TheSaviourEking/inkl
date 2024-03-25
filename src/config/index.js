@@ -10,5 +10,6 @@ module.exports = {
     jwt: {
         secret: process.env.JWT_SECRET,
         expiresIn: process.env.JWT_EXPIRES_IN
-    }
+    },
+    dev_db: process.env.DB_DEV
 }
