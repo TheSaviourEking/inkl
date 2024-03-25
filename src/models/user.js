@@ -9,6 +9,25 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
+    toSafeObject() {
+      return { this: { id, userName, email } }
+    };
+
+    validatePassword(password) {
+      return bcrypt.compareSync(password, this.password.toString());
+    }
+
+    static async login({ credential, password }) {
+      const { Op } = require('sequelize');
+      const user = await User.scope('loginUser').findOne({
+        where: {
+          [Op.or]: { userName: credential, email: credential }
+        }
+      });
+      if (user && user.validatePassword(password)) {
+        return await User.scope('currentUser').findByPk(user.id);
+      }
+    }
     static associate(models) {
       // define association here
       User.hasOne(models.Preference)
@@ -64,6 +83,20 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'User',
+
+    defaultScope: {
+      attributes: {
+        exclude: ['password', 'updatedAt', 'email', 'createdAt']
+      }
+    },
+    scopes: {
+      loginUser: {
+        attributes: {}
+      },
+      currentUser: {
+        attributes: { exclude: ['password', 'updatedAt', 'createdAt'] }
+      }
+    }
   });
   return User;
 };

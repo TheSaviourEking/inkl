@@ -19,17 +19,20 @@ app.use(express.urlencoded({ extended: true }));
 const path = require('path');
 app.use('/public', express.static(path.join(__dirname, 'public'), { dotfiles: 'ignore', redirect: false }));
 
-app.use(session({
-    secret: 'SECR',
-    resave: false,
-    resave: false,
-    saveUninitialized: true,
-    cookie: { secure: true }
-}))
+app.use(
+    session({
+        secret: process.env.JWT_SECRET,
+        resave: false,
+        resave: false,
+        saveUninitialized: true,
+        cookie: { secure: true }
+    }))
 if (!isProduction) app.use(cors());
+// if (!isProduction) app.use(cors({ origin: 'http://127.0.0.1:8080', credentials: true }));
 // set up helmet
 app.use(helmet({ crossOriginResourcePolicy: { policy: 'cross-origin' } }));
 
+// delete when production
 console.log({
     cookie: {
         secure: isProduction,
@@ -46,6 +49,7 @@ app.use(
         }
     })
 );
+// console.log(csurf, '--------------------+++++++++++++++++=')
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
