@@ -1,11 +1,12 @@
 'use strict';
 
 const { User } = require('../../models');
+const bcrypt = require('bcryptjs')
 
 const users = [
-  { id: require('crypto').randomUUID(), firstName: 'Sheff', lastName: 'lastname', email: 'sing@ema.com', userName: 'usernaeme', password: 'usniijdaoeng h' },
-  { id: require('crypto').randomUUID(), firstName: 'Kevin', lastName: 'dubye', email: 'amd@gme.com', userName: 'kevin3', password: 'hiepjdaoeng h' },
-  { id: require('crypto').randomUUID(), firstName: 'Fred', lastName: 'Redd', email: 'free@test.com', userName: 'frereed', password: 'heihgijdaoeng hfja' }
+  { id: require('crypto').randomUUID(), firstName: 'Sheff', lastName: 'lastname', email: 'sing@ema.com', userName: 'usernaeme', role: 'admin', password: bcrypt.hashSync('usniijdaoeng h') },
+  { id: require('crypto').randomUUID(), firstName: 'Kevin', lastName: 'dubye', email: 'amd@gme.com', userName: 'kevin3', role: 'user', password: bcrypt.hashSync('hiepjdaoeng h') },
+  { id: require('crypto').randomUUID(), firstName: 'Fred', lastName: 'Redd', email: 'free@test.com', userName: 'frereed', role: 'user', password: bcrypt.hashSync('heihgijdaoeng hfja') }
 
   // { firstName: 'Sheff', lastName: 'lastname', email: 'sing@ema.com', userName: 'usernaeme', password: 'usnii' },
   // { firstName: 'Kevin', lastName: 'dubye', email: 'amd@gme.com', userName: 'kevin3', password: 'hiep' },

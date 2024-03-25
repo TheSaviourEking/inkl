@@ -8,8 +8,7 @@ module.exports = {
         // autoIncrement: true,
         type: Sequelize.UUID,
         defaultValue: Sequelize.UUIDV4,
-        primaryKey: true,
-        // defaultValue: Sequelize.literal('uuid_generate_v4()')
+        primaryKey: true
       },
       firstName: {
         type: Sequelize.STRING(100),
@@ -27,6 +26,11 @@ module.exports = {
         type: Sequelize.STRING(100),
         unique: true,
         allowNull: false
+      },
+      role: {
+        type: Sequelize.ENUM('admin', 'user'),
+        allowNull: false,
+        defaultValue: 'user'
       },
       password: {
         type: Sequelize.STRING,
