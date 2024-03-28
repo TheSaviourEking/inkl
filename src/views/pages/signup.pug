@@ -1,0 +1,22 @@
+doctype html 
+html 
+    head 
+        title New
+        link(rel="stylesheet" type="text/css" href="/css/style.css")
+    body 
+        h1 Sign in
+        form(action="/signup" method="post")
+            section 
+                label(for="username") Username 
+                input#username(name="username" type="text" autocomplete="username" required autofocus)
+            section 
+                label(for="email") email 
+                input#emai(name="email" type="text" autocomplete="email" required)
+
+            //- input(type="hidden" name="_csrf")
+            input(type="hidden" name="_csrf" id="_csrf")
+            button(type="submit") Sign in 
+    // js file here
+    script(src="/js/csrf.js")
+    //- script(src="/js/signup.js")
+    script(src="/js/script.js")

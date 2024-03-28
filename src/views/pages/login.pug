@@ -1,0 +1,21 @@
+doctype html 
+html 
+    head 
+        title New
+        link(rel="stylesheet" type="text/css" href="/css/style.css")
+    body 
+        h1 Sign in
+        form(action="/login" method="post")
+            section 
+                label(for="username") Username 
+                input#username(name="username" type="text" autocomplete="username" required autofocus)
+            section 
+                label(for="current-password") Password 
+                input#current-password(name="password" type="password" autocomplete="current-password" required)
+
+            input(type="hidden" name="_csrf" id="_csrf")
+            button(type="submit") Sign in 
+    // js file here
+    script(src="/js/csrf.js")
+    script(src="/js/login.js")
+    script(src="/js/script.js")
