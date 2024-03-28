@@ -4,6 +4,7 @@ const { setTokenCookie } = require('../utils/auth.js');
 
 const login = async (req, res) => {
     const { username, password } = req.body;
+    console.log(username, password)
 
     const user = await User.login({ credential: username, password });
     if (!user) {
@@ -12,7 +13,9 @@ const login = async (req, res) => {
 
     setTokenCookie(res, user);
     res.json({ user, jwt: process.env.JWT_SECRET });
+    // res.redirect('/')
     // res.render('pages/home', { user, jwt: process.env.JWT_SECRET });
+    res.render('pages/home', { user })
 }
 
 const signup = async (req, res, next) => {
@@ -27,11 +30,21 @@ const signup = async (req, res, next) => {
             else if (user === 'Email already exists') res.json({ error: 'Email already exists' });
         } else {
             setTokenCookie(res, user);
-            res.json({ user });
+            // res.json({ user });
+            // res.redirect('/')
         };
     } catch (err) {
         console.error('Error during user creation: ', err);
         res.status(500).json({ error: 'Internal server error' });
     }
 }
-module.exports = { login, signup };
+
+const renderLoginPage = (req, res, next) => {
+    res.render('pages/login', { 'XSRF-TOKEN': res.cookie['XSRF-TOKEN'], xsrf: res.cookie['XSRF-TOKEN'] })
+}
+
+const renderSignupPage = (req, res, next) => {
+    res.render('pages/signup');
+}
+
+module.exports = { login, signup, renderLoginPage, renderSignupPage };
