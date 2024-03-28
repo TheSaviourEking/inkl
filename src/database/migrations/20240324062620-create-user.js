@@ -10,22 +10,14 @@ module.exports = {
         defaultValue: Sequelize.UUIDV4,
         primaryKey: true
       },
-      firstName: {
+      userName: {
         type: Sequelize.STRING(100),
-        allowNull: false
-      },
-      lastName: {
-        type: Sequelize.STRING(100),
+        unique: true,
         allowNull: false
       },
       email: {
         type: Sequelize.STRING,
         unique: true
-      },
-      userName: {
-        type: Sequelize.STRING(100),
-        unique: true,
-        allowNull: false
       },
       role: {
         type: Sequelize.ENUM('admin', 'user'),

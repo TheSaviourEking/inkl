@@ -57,18 +57,12 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true,
       validate: { isUUID: 4 }
     },
-    firstName: {
+    userName: {
       type: DataTypes.STRING(100),
       allowNull: false,
+      unique: { msg: 'User already exists with this username' },
       validate: {
-        notNull: { msg: 'Please enter firstname' }
-      }
-    },
-    lastName: {
-      type: DataTypes.STRING(100),
-      allowNull: false,
-      validate: {
-        notNull: { msg: 'Please enter lastname' }
+        notNull: { msg: 'Please enter your username' }
       }
     },
     email: {
@@ -77,14 +71,6 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         isEmail: { msg: 'Please use the correct email format: `user@example.com`' }
         // notNull: { msg: 'Please enter your email' }
-      }
-    },
-    userName: {
-      type: DataTypes.STRING(100),
-      allowNull: false,
-      unique: { msg: 'User already exists with this username' },
-      validate: {
-        notNull: { msg: 'Please enter your username' }
       }
     },
     role: {

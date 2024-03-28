@@ -1,39 +1,31 @@
 'use strict';
 
+const { Op } = require('sequelize');
+
 const bcrypt = require('bcryptjs');
 const { User, Preference } = require('../../models');
 const userPreferences = [
   {
-    firstName: 'Sheff', lastName: 'lastname', email: 'sing@ema.com', userName: 'usernaeme',
+    email: 'sing@ema.com', userName: 'usernaeme',
     preferences: [
       { language: 'fr', emailNotification: 'false', browserNotification: 'false' }
     ]
   },
   {
-    firstName: 'Kevin', lastName: 'dubye', email: 'amd@gme.com', userName: 'kevin3',
+    email: 'amd@gme.com', userName: 'kevin3',
     preferences: [
       { language: 'en', emailNotification: 'true', browserNotification: 'true' }
     ]
   },
   {
-    firstName: 'Fred', lastName: 'Redd', email: 'free@test.com', userName: 'frereed',
+    email: 'free@test.com', userName: 'frereed',
     preferences: [
       { language: 'fgg', emailNotification: '', browserNotification: 'false' }
     ]
   },
   {
-    firstName: 'kien',
-    lastName: 'liken',
-    email: 'fred_redd@example.com',
-    userName: 'fred_redd123',
-    role: 'user',
-    password: bcrypt.hashSync('P@ssw0rd123'),
-    preferences: [
-      {
-        language: 'English',
-        emailNotification: 'true',
-        browserNotification: 'false'
-      }
+    email: 'fred_redd@example.com', userName: 'fred_redd123', role: 'user', password: bcrypt.hashSync('P@ssw0rd123'), preferences: [
+      { language: 'English', emailNotification: 'true', browserNotification: 'false' }
     ]
   }
 ]
@@ -41,9 +33,9 @@ const userPreferences = [
 module.exports = {
   async up(queryInterface, Sequelize) {
     for (const userPreference of userPreferences) {
-      const { firstName, lastName, email, userName, password, preferences } = userPreference;
-      let user = await User.findOne({ where: { firstName, lastName, userName } });
-      if (!user) user = await User.create({ firstName, lastName, email, userName, password });
+      const { email, userName, role, password, preferences } = userPreference;
+      let user = await User.findOne({ where: { [Op.or]: { userName, email } } });
+      if (!user) user = await User.create({ email, userName, password });
       for (const preference of preferences) {
         await user.createPreference(preference);
       }
@@ -52,8 +44,8 @@ module.exports = {
 
   async down(queryInterface, Sequelize) {
     for (const userPreference of userPreferences) {
-      const { firstName, preferences } = userPreference;
-      const user = await User.findOne({ where: { firstName } });
+      const { userName, email, preferences } = userPreference;
+      const user = await User.findOne({ where: { [Op.or]: { userName, email } } });
       for (const preference of preferences) {
         await Preference.destroy({ where: { ...preference, userId: user.id } });
       }
