@@ -1,3 +1,51 @@
-/* body {
-    background-color: red;
-} */
+html,
+body {
+    /* background: url('../images/android-chrome-512x512.png') no-repeat; */
+    /* background-size: contain; */
+    background-color: seagreen
+}
+
+.container {
+    width: 300px;
+    text-align: center;
+    margin: auto;
+}
+
+h2 {
+    text-align: left;
+}
+
+#options {
+    padding: 1rem;
+
+    a {
+        margin: 1rem;
+    }
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+button {
+    width: max-content;
+    align-self: center;
+    padding: 0.2rem 1rem;
+    border-radius: 0.3rem
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+section {
+    display: flex;
+    gap: 2rem;
+}
+
+input {
+    width: 10rem;
+}
