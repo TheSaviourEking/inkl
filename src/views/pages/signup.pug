@@ -1,21 +1,29 @@
 doctype html 
 html 
     head 
-        title New
+        title ahoy 👋
         link(rel="stylesheet" type="text/css" href="/css/style.css")
     body 
-        h1 Sign in
-        form(action="/signup" method="post")
-            section 
-                label(for="username") Username 
-                input#username(name="username" type="text" autocomplete="username" required autofocus)
-            section 
-                label(for="email") email 
-                input#emai(name="email" type="text" autocomplete="email" required)
-
-            //- input(type="hidden" name="_csrf")
-            input(type="hidden" name="_csrf" id="_csrf")
-            button(type="submit") Sign in 
+        .container 
+            h1 Signup
+            form(action="/signup" method="post")
+                section 
+                    label(for="username") Username 
+                    input#username(name="username" type="text" autocomplete="username" required autofocus)
+                section 
+                    label(for="email") email 
+                    input#emai(name="email" type="text" autocomplete="email" required)
+                section 
+                    label(for="password") password 
+                    input#password(name="password" type="text" autocomplete="password" required)
+                input(type="hidden" name="_csrf" id="_csrf")
+                button(type="submit") Sign Up 
+            h2 Other Sign in Options
+            div#options
+                a(class="button google" href="/auth/google") Google
+                //- a(class="button google" href="/login/google") Google
+                a(class="button github" href="/login/github") Github
+                a(class="button facebook" href="/login/facebook") Facebook
     // js file here
     script(src="/js/csrf.js")
     //- script(src="/js/signup.js")
