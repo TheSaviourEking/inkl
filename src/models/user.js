@@ -1,5 +1,6 @@
 'use strict';
 const { Op } = require('sequelize');
+const bcrypt = require('bcryptjs');
 const {
   Model
 } = require('sequelize');
@@ -11,11 +12,11 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     toSafeObject() {
-      return { this: { id, userName, email } }
+      const { id, userName, email } = this;
+      return { id, userName, email };
     };
 
     validatePassword(password) {
-      const bcrypt = require('bcryptjs');
       return bcrypt.compareSync(password, this.password.toString());
     }
 
@@ -31,8 +32,7 @@ module.exports = (sequelize, DataTypes) => {
     }
 
     static async signup(payLoad) {
-      console.log(payLoad)
-      const { firstName, lastName, email, userName, password, role } = payLoad;
+      const { email, userName, password, role } = payLoad;
       let user = await User.scope('loginUser').findOne({
         where: {
           [Op.or]: { userName, email }
@@ -42,12 +42,16 @@ module.exports = (sequelize, DataTypes) => {
         if (user.userName === userName) return 'userName exists';
         else if (user.email === email) return 'Email already exists';
       }
-      const newUser = await User.create({ firstName, lastName, email, userName, password, role });
+      const newUser = await User.create({
+        email, userName,
+        password: bcrypt.hashSync(password), role
+      });
       return await User.scope('currentUser').findByPk(newUser.id);
     }
     static associate(models) {
       // define association here
-      User.hasOne(models.Preference)
+      User.hasOne(models.Preference);
+      User.hasMany(models.federatedCredentials)
     }
   }
   User.init({
@@ -80,9 +84,9 @@ module.exports = (sequelize, DataTypes) => {
     },
     password: {
       type: DataTypes.STRING,
-      allowNull: false,
+      // allowNull: false,
       validate: {
-        notNull: { msg: 'Enter a password' },
+        // notNull: { msg: 'Enter a password' },
         len: {
           args: [8, Infinity],
           msg: 'The Password must be 8+ characters long'
