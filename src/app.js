@@ -61,7 +61,6 @@ app.use(
 // create session table if it doesn't already exist
 store.sync();
 
-// app.use(passport.authenticate('session'));
 
 // delete when production
 console.log({
