@@ -5,29 +5,31 @@ const csurf = require('csurf');
 const helmet = require('helmet');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
+const passport = require('passport');
 const SequelizeStore = require('connect-session-sequelize')(session.Store)
 const { environment } = require('./config');
-// const { ValidationError } = require('sequelize');
 const isProduction = environment === 'production' ? true : false;
 
-// const bodyParser = require('body-parser');
-// const parseForm = bodyParser.urlencoded({ extended: false })
-
 // require('express-async-errors');
-const { resourceNotFound, sequelizeError, errorFormatter } = require('./middleware/error.js');
+// const { resourceNotFound, sequelizeError, errorFormatter } = require('./middleware/error.js');
 const app = express();
 app.use(morgan('dev'));
+app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(cookieParser());
+const path = require('path');
+// app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('public'));
+
 
 // if (!isProduction) {
 //     app.use(cors({ origin: 'http://127.0.0.1:8080', credentials: true, optionsSuccessStatus: 200 }));
 //     app.options('*', cors({ origin: 'http://127.0.0.1:8080', credentials: true, optionsSuccessStatus: 200 }))
 // }
 if (!isProduction) {
-    app.use(cors({ origin: 'http://127.0.0.1:8080', credentials: true, optionsSuccessStatus: 200 }));
+    app.use(cors({ origin: 'http://127.0.0.1:8080', credentials: true }));
+    // app.use(cors({ origin: 'http://127.0.0.1:8080', credentials: true, optionsSuccessStatus: 200 }));
     // app.options('*', cors({ origin: 'http://127.0.0.1:8080', credentials: true, optionsSuccessStatus: 200 }))
 }
 
@@ -40,11 +42,12 @@ app.use(
             // maxAge: 60*60*1000,
             httpOnly: true
         },
-        cookieName: 'XSRF-TOKEN'
+        // cookieName: 'XSRF-TOKEN'
     })
 );
 // setting up session middleware 
 const db = require('./models');
+// const { passport } = require('passport');
 const store = new SequelizeStore({ db: db.sequelize, /*table: 'Session'*/ })
 app.use(
     session({
@@ -58,9 +61,7 @@ app.use(
 // create session table if it doesn't already exist
 store.sync();
 
-const path = require('path');
-app.use(express.static('public'));
-// app.use(express.static('public', { dotfiles: 'ignore', redirect: false }))
+// app.use(passport.authenticate('session'));
 
 // delete when production
 console.log({
@@ -70,23 +71,14 @@ console.log({
         httpOnly: true
     }
 });
-// console.log(csurf, '--------------------+++++++++++++++++=')
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
-// app.use((req, res, next) => {
-//     res.locals.csrfToken = req.csrfToken();
-//     console.log(res.locals.csrfToken)
-//     next();
-// });
-
-app.use('/', require('./routes/homePage.js'));
-app.use('/status', require('./routes/index.js'));
-
+app.use('/', require('./routes/index.js'));
 // Errors
-app.use(resourceNotFound);
-app.use(sequelizeError);
-app.use(errorFormatter);
+// app.use(resourceNotFound);
+// app.use(sequelizeError);
+// app.use(errorFormatter);
 
 module.exports = app;
