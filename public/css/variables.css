@@ -1,0 +1,16 @@
+:root {
+    --color-primary-light: #aaccff;
+    --color-secondary-light: #F2F2F2;
+    --color-accent-light: #F7BE7A;
+
+    /* DARK MODE COLORS*/
+    --color-primary-dark: #222C32;
+    --color-secondary-dark: #33373B;
+    --color-accent-dark: #8DC6E0;
+}
+
+/* :root.theme-dark {
+    --color-primary: #222C32;
+    --color-secondary: #33373B;
+    --color-accent: #8DC6E0;
+} */
