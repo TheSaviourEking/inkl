@@ -22,11 +22,6 @@ const userPreferences = [
     preferences: [
       { language: 'fgg', emailNotification: '', browserNotification: 'false' }
     ]
-  },
-  {
-    email: 'fred_redd@example.com', userName: 'fred_redd123', role: 'user', password: bcrypt.hashSync('P@ssw0rd123'), preferences: [
-      { language: 'English', emailNotification: 'true', browserNotification: 'false' }
-    ]
   }
 ]
 /** @type {import('sequelize-cli').Migration} */
@@ -34,6 +29,7 @@ module.exports = {
   async up(queryInterface, Sequelize) {
     for (const userPreference of userPreferences) {
       const { email, userName, role, password, preferences } = userPreference;
+      // let user = await User.findOrCreate({ [Op.or]: { userName, email } });
       let user = await User.findOne({ where: { [Op.or]: { userName, email } } });
       if (!user) user = await User.create({ email, userName, password });
       for (const preference of preferences) {
