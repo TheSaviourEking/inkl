@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
-const getGoogleOauthTokens = require('../../../src/utils/getGoogleOauthTokens.js');
-const getGoogleUser = require('../../utils/getGoogleUser.js');
+const getGoogleOauthTokens = require('../../utils/auth/google/getGoogleOauthTokens.js');
+const getGoogleUser = require('../../utils/auth/google/getGoogleUser.js');
 const { User } = require('../../models');
 const { setTokenCookie } = require('../../utils/token.js');
 
