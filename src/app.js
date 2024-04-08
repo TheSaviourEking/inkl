@@ -5,7 +5,6 @@ const csurf = require('csurf');
 const helmet = require('helmet');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
-const passport = require('passport');
 const SequelizeStore = require('connect-session-sequelize')(session.Store)
 const { environment } = require('./config');
 const isProduction = environment === 'production' ? true : false;
@@ -19,27 +18,19 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 const path = require('path');
-// app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static('public'));
 
-
-// if (!isProduction) {
-//     app.use(cors({ origin: 'http://127.0.0.1:8080', credentials: true, optionsSuccessStatus: 200 }));
-//     app.options('*', cors({ origin: 'http://127.0.0.1:8080', credentials: true, optionsSuccessStatus: 200 }))
-// }
 if (!isProduction) {
-    app.use(cors({ origin: 'http://127.0.0.1:8080', credentials: true }));
-    // app.use(cors({ origin: 'http://127.0.0.1:8080', credentials: true, optionsSuccessStatus: 200 }));
-    // app.options('*', cors({ origin: 'http://127.0.0.1:8080', credentials: true, optionsSuccessStatus: 200 }))
+    app.use(cors({ origin: 'http://127.0.0.1:8080', credentials: true, optionsSuccessStatus: 200 }));
 }
 
+// setting up helmet
+// app.use(helmet)
 app.use(
     csurf({
         cookie: {
             secure: isProduction,
             sameSite: isProduction && 'lax',
-            // sameSite: 'None',
-            // maxAge: 60*60*1000,
             httpOnly: true
         },
         // cookieName: 'XSRF-TOKEN'
@@ -47,8 +38,7 @@ app.use(
 );
 // setting up session middleware 
 const db = require('./models');
-// const { passport } = require('passport');
-const store = new SequelizeStore({ db: db.sequelize, /*table: 'Session'*/ })
+const store = new SequelizeStore({ db: db.sequelize, /*table: 'Sessions'*/ })
 app.use(
     session({
         secret: process.env.JWT_SECRET,
