@@ -9,6 +9,8 @@ module.exports = {
     },
     jwt: {
         secret: process.env.JWT_SECRET,
+        accessToken: process.env.ACCESS_TOKEN,
+        refreshToken: process.env.REFRESH_TOKEN,
         expiresIn: process.env.JWT_EXPIRES_IN
     },
     dev_db: process.env.DB_DEV
