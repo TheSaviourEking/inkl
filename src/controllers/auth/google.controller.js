@@ -30,11 +30,11 @@ const googleAuth = async (req, res) => {
             req.session.user = { id: user.id, name: user.userName, email: user.email };
         }
         // set cookies
-        setTokenCookie(res, user);
+        await setTokenCookie(res, user);
         // redirect to client
         res.redirect('/')
     } catch (error) {
-        res.redirect('http://localhost:8080/oauth/error')
+        res.redirect('http://localhost:8080/auth/error')
     }
 }
 
