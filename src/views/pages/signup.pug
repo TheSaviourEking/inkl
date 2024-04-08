@@ -6,7 +6,7 @@ html
     body 
         .container 
             h1 Signup
-            form(action="/signup" method="post")
+            form(action="/api/users" method="post")
                 section 
                     label(for="username") Username 
                     input#username(name="username" type="text" autocomplete="username" required autofocus)
