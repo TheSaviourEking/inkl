@@ -7,7 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
     body.appendChild(main);
     body.appendChild(footer);
 
-    Nav();
-    Hero();
+    // Nav();
+    // Hero();
     WhyUs();
+    News();
 })

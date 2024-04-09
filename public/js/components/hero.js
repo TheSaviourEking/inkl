@@ -4,9 +4,9 @@ const Hero = () => {
     const h2 = document.createElement('h2');
     const a = document.createElement('a');
 
-    h1.innerText = 'Here';
-    h2.innerText = 'HEREMORSE';
-    a.innerText = 'Start Today';
+    h1.innerText = 'Never miss what matters';
+    h2.innerText = 'Stay informed with curated headlines';
+    a.innerText = 'Start your personalized news journey';
     a.setAttribute('href', '/signup');
     a.setAttribute('class', 'cta');
 
