@@ -29,15 +29,10 @@ const getNews = async (path) => {
 }
 
 const createNewsCard = async () => {
-    // const card = document.createElement('div');
-    // card.setAttribute('class', 'card');
     const news = await getNews('/js/data.json')
-
 
     let string = '';
     for (let i = 0; i < news.data.length; i++) {
-        // const card = document.createElement('div');
-        // card.setAttribute('class', 'card');
         string += `<div class='card'>${news.data[i].title}</div>`;
     }
     const section = document.querySelector('main').childNodes[1];
