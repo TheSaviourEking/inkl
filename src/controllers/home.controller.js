@@ -1,4 +1,3 @@
-const getGoogleOauthUrl = require('../utils/auth/google/getGoogleAuth.js');
 const path = require('path');
 
 const renderHomePage = (req, res) => {
