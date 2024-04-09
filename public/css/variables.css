@@ -1,16 +1,27 @@
 :root {
-    --color-primary-light: #aaccff;
+    /* --color-primary-light: #AACCFF;
     --color-secondary-light: #F2F2F2;
-    --color-accent-light: #F7BE7A;
+    --color-accent-light: #F7BE7A; */
 
-    /* DARK MODE COLORS*/
-    --color-primary-dark: #222C32;
-    --color-secondary-dark: #33373B;
-    --color-accent-dark: #8DC6E0;
+    --color-primary: #AACCFF;
+    /* --color-secondary: #F2F2F2; */
+    --color-secondary: #F8F5F0;
+    /* --color-accent: #F7BE7A; */
+    --color-accent: #FF7993;
+    --color-text-primary: #000000;
+    /* --color-text-primary: #33373B; */
+    --color-text-secondary: #808080;
 }
 
-/* :root.theme-dark {
-    --color-primary: #222C32;
-    --color-secondary: #33373B;
-    --color-accent: #8DC6E0;
-} */
+
+:root.theme-dark {
+    --color-primary: #222C37;
+    /* --color-secondary: #33373B; */
+    --color-secondary: #393E46;
+    /* --color-accent: #8DC6E0; */
+    --color-accent: #29ABE2;
+    --color-text-primary: #FFFFFF;
+    --color-text-secondary: #F2F2F2;
+}
+
+/* LOOK at Blue Or purple too */

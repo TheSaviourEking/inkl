@@ -41,6 +41,14 @@ header section {
     /* background-position: center; */
 }
 
+section {
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
 nav {
     justify-content: space-between;
     align-items: center;
@@ -65,6 +73,15 @@ nav div>* {
     width: 3rem;
 }
 
+/* MAIN SECTION */
+main {
+    section {
+        .cta {
+            align-self: flex-start;
+        }
+    }
+}
+
 /* UTILITY CLASSES */
 img {
     width: 100%;
@@ -73,7 +90,7 @@ img {
 
 .cta {
     color: var(--color-primary);
-    background-color: var(--color-accent-light);
+    background-color: var(--color-accent);
     border-radius: 0.3rem;
     padding: 1rem;
     text-decoration: none;
@@ -81,6 +98,28 @@ img {
 
     &:hover {
         background-color: var(--color-primary-light);
+    }
+}
+
+.cards {
+    flex-wrap: wrap;
+    padding: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+
+    .card {
+        background-color: red;
+        flex: 1;
+        border: 1px solid #ccc;
+        border-radius: 1rem;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 2orem;
+        height: 10rem;
+        padding: 3rem;
     }
 }
 
