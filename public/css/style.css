@@ -4,9 +4,31 @@
 /* body text*/
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
 /* buttons and labels */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,200..1000&display=swap');
 @import url('./variables.css');
 @import url('./desktop.css');
 @import url('./tablet.css');
+
+.nunito-sans- {
+    font-family: "Nunito Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 544;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100,
+        "YTLC" 500;
+}
+
+/* // <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 100 to 900 */
+
+.montserrat- {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 877;
+    font-style: normal;
+}
 
 * {
     padding: 0;
@@ -86,6 +108,27 @@ section {
     flex-direction: column;
 }
 
+.hero-content {
+    flex-direction: column;
+    max-width: 600px;
+
+    h1 {
+        margin-bottom: 20px;
+        font-size: 3rem;
+    }
+
+    h2 {
+        margin-bottom: 20px;
+        font-size: 2rem;
+    }
+
+    a {
+        margin-bottom: 20px;
+        font-size: 1.2rem;
+        align-self: flex-start;
+    }
+}
+
 nav {
     justify-content: space-between;
     align-items: center;
@@ -117,6 +160,19 @@ main {
             align-self: flex-start;
         }
     }
+
+    section:last-child {
+        flex-wrap: wrap;
+        
+        .card {
+            /* flex: 1 1 33.333%; */
+            /* background-color: red; */
+            width: 300px;
+            /* height: max-content; */
+            overflow: hidden;
+            flex-direction: column;
+        }
+    }
 }
 
 /* UTILITY CLASSES */
@@ -144,22 +200,25 @@ img {
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
-
-    .card {
-        background-color: var(--color-accent);
-        flex: 1;
-        border: 5px solid var(--color-secondary);
-        border-radius: 1rem;
-        text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 2orem;
-        height: 10rem;
-        padding: 3rem;
-    }
 }
 
+.card {
+    background-color: var(--color-accent);
+    flex: 1;
+    border: 5px solid var(--color-secondary);
+    border-radius: 1rem;
+    /* text-align: center; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20rem;
+    height: 10rem;
+    padding: 3rem;
+}
+.card-content {
+    flex-grow: 1;
+    padding: 20px;
+}
 .flex {
     display: flex;
 }
@@ -167,3 +226,9 @@ img {
 .grid {
     display: grid;
 }
+
+img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
