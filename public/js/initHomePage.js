@@ -10,5 +10,5 @@ document.addEventListener('DOMContentLoaded', () => {
     Nav();
     Hero();
     WhyUs();
-    // News();
+    News();
 })
