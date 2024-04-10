@@ -17,14 +17,18 @@
                 name="_csrf" id="_csrf" /><button type="submit">Login </button>
         </form>
         <h2>Other Sign in Options</h2>
-        <div id="options"><a class="button google" id="google" href="/auth/google/oauth2/redirect">Google</a>
-            <a class="button facebook"
-                href="/login/facebook">Facebook</a></div>
+        <div id="options">
+            <a class="button google" id="google">Google</a>
+            <a class="button microsoft" id="microsoft">microsoft</a>
+            <!-- <a class="button microsoft" id="microsoft" href="/auth/microsoft/oauth2/redirect">Google</a> -->
+            <a class="button facebook" href="/login/facebook">Facebook</a>
+        </div>
     </div>
     <!-- js file here-->
-    <script src="/js/csrf.js"></script>
-    <script src="/js/login.js"></script>
-    <script src="/js/script.js"></script>
+    <script src="/js/utils/csrf.js"></script>
+    <script src="/js/utils/login.js"></script>
+    <script src="/js/utils/getNecessaryData.js"></script>
+    <!-- <script src="/js/script.js"></script> -->
 </body>
 
 </html>
