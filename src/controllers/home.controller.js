@@ -3,7 +3,7 @@ const path = require('path');
 const renderHomePage = (req, res) => {
     const csrfToken = req.csrfToken();
     res.cookie('XSRF-TOKEN', csrfToken);
-    res.sendFile(path.resolve(__dirname, '..', 'views', 'pages', 'home.html'))
+    res.sendFile(path.resolve(__dirname, '..', 'views', 'index.html'))
 }
 
 const renderLoginPage = (req, res) => {
