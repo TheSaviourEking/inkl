@@ -3,23 +3,20 @@
     --color-secondary-light: #F2F2F2;
     --color-accent-light: #F7BE7A; */
 
-    --color-primary: #AACCFF;
-    /* --color-secondary: #F2F2F2; */
-    --color-secondary: #F8F5F0;
-    /* --color-accent: #F7BE7A; */
-    --color-accent: #FF7993;
-    --color-text-primary: #000000;
-    /* --color-text-primary: #33373B; */
-    --color-text-secondary: #808080;
+    --color-primary: #F8F9FB;
+    --color-secondary: #F2F2F2;
+    --color-accent: #AACCFF;
+    --text: #000;
+    /* --text-accent: #f30000; */
 }
 
 
 :root.theme-dark {
-    --color-primary: #222C37;
+    --color-primary: #191E26;
     /* --color-secondary: #33373B; */
-    --color-secondary: #393E46;
+    --color-secondary: #33373B;
     /* --color-accent: #8DC6E0; */
-    --color-accent: #29ABE2;
+    /* --color-accent: #; */
     --color-text-primary: #FFFFFF;
     --color-text-secondary: #F2F2F2;
 }
