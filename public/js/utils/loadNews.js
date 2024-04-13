@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', async () => {
     const prev = document.getElementById('prev');
     const next = document.getElementById('next');
-    const cards = document.getElementsByClassName('cards')[1];
+    const cards = document.getElementsByClassName('cards')[0];
     try {
         let newsData = null;
         const res = await fetch('/js/data.json');
