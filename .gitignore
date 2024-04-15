@@ -132,3 +132,5 @@ dist
 # package-lock
 package-lock.json
 db.sqlite3
+assets
+videos
