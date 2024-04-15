@@ -167,12 +167,6 @@ h1 {
 
 main {
     width: 100%;
-
-    &>div {
-        /* align-self: center;
-        background-color: red !important;
-        text-align: center; */
-    }
 }
 
 main>section {
@@ -205,26 +199,48 @@ main>section>div:last-child {
     flex-wrap: wrap;
     gap: 1rem;
     width: 100%;
+    position: relative;
 }
 
 .card {
     flex: 1;
-    flex-basis: 30%;
+    flex-basis: 15%;
     border-radius: 0.8rem;
-    background-color: var(--color-secondary);
+    border-radius: 2rem;
+    border: none;
     text-align: center;
     width: fit-content;
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* justify-content: space-between; */
-    max-width: 25rem;
+    max-width: 20rem;
     align-self: normal;
+    position: relative;
+    padding: 2rem 1rem;
 }
 
-.card-img {
-    height: 40%;
-    width: 100%;
+.card-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    object-fit: cover;
+    object-position: center;
+}
+
+.card img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    object-position: center;
+    z-index: -1;
+}
+
+.card-content {
+    z-index: 3;
 }
 
 section.why-us {
