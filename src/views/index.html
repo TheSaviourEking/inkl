@@ -6,30 +6,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <!-- <meta name="color-scheme" content="dark light"> -->
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
     <header>
-        <nav>
-            <a href="/" class="logo"><img src="/images/android-chrome-512x512.png"></a>
-            <div>
-                <input type="text" name="search" placeholder="Search...">
-                <!-- <button>switch</button> -->
-                <ul>
-                    <li><a class="cta" href="/signup">signup</a></li>
-                    <li><a class="cta" href="/login">login</a></li>
-                </ul>
-            </div>
-        </nav>
-        <section class="hero-section">
-            <div class="hero-content">
-                <h1>Never miss what matters!</h1>
-                <h2>Stay informed with curated headlines</h2>
-                <a href="/signup" class="cta">Start your personalized news journey</a>
-            </div>
-        </section>
+        <div class="video-container">
+            <video id="heroVideo" class="video-bg" autoplay muted>
+                <!-- <source src="/assets/video/3201633-hd_1920_1080_25fps.mp4" type="video/mp4"> -->
+                <!-- <source src="https://cdn.discordapp.com/attachments/1229223507532189756/1229223922483069008/3201633-hd_1920_1080_25fps.mp4?ex=662ee6fc&is=661c71fc&hm=0474948fbc2556f1cd502ab49d5882e412a4a452b5a7898fc27a87fe5a7ff01d&" type="video/mp4"> -->
+                <source
+                    src="https://cdn.discordapp.com/attachments/1229223507532189756/1229236449895911434/pixabay-earth.webm?ex=662ef2a7&is=661c7da7&hm=d33962cebc8d447ad72955e484568ac846ff763a26eb6ff27270c6d4672d6ffc&"
+                    type="video/webm">
+                <source
+                    src="https://cdn.discordapp.com/attachments/1229223507532189756/1229236450550349864/pixabay-earth.mp4?ex=662ef2a7&is=661c7da7&hm=b3380d4df311940f938026f551667c111a6eb71675a4960083bf295a66104573&"
+                    type="video/mp4">
+                <!-- <source src="/assets/video/pixabay-earth.webm" type="video/webm">
+                <source src="/assets/video/pixabay-earth.mp4" type="video/mp4"> -->
+                browser does not support HTML5 video
+            </video>
+        </div>
+        <div class="header-content">
+            <nav>
+                <a class='logo' href="https://imgbb.com/"><img src="https://i.ibb.co/tbTjN4y/apple-touch-icon.png"
+                        alt="apple-touch-icon">
+                </a>
+                <div>
+                    <input type="text" name="search" placeholder="Search...">
+                    <ul>
+                        <li><a class="cta" href="/login">login</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <section class="hero-section">
+                <div class="hero-content">
+                    <h1>Never miss what matters!</h1>
+                    <h2>Stay informed with curated headlines</h2>
+                    <a href="/signup" class="cta">Start your personalized news journey</a>
+                </div>
+            </section>
+        </div>
     </header>
     <main>
         <section>
@@ -44,12 +63,30 @@
             <div>
                 <div class="cards">
                 </div>
+                <!-- <div>
+                    <button type="button" id="prev">
+                        <img src="/assets/images/arrow.png" alt="">
+                    </button>
+                    <button type="button" id="next">
+                        <img src="/assets/images/next.png" alt="">
+                    </button>
+                </div> -->
                 <div>
-                    <button type="button" id="prev">prev</button>
-                    <button type="button" id="prev">next</button>
+                    <button type="button" id="readMore">Read more</button>
                 </div>
             </div>
         </section>
+        <div class="modal" id="modal">
+            <!-- Modal Content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div>
+                    <h3>Want more news?</h3>
+                    <p>Sign up for Inkl to see more great stories</p>
+                    <a href="/signup" class="cta">Continue</a>
+                </div>
+            </div>
+        </div>
         <section class="why-us">
             <h2>Why Us</h2>
             <div class="cards">
@@ -66,6 +103,7 @@
     </footer>
 
     <script src="/js/utils/loadNews.js"></script>
+    <script src="/js/utils/homePage.utils.js"></script>
 </body>
 
 </html>
