@@ -10,5 +10,6 @@ function getCSRFTokenCookie() {
 }
 window.onload = () => {
     const csrfTokenInput = document.querySelector('#_csrf');
+    console.log(csrfTokenInput)
     csrfTokenInput.value = getCSRFTokenCookie();
 }
