@@ -12,7 +12,7 @@ form.addEventListener('submit', async (e) => {
         credentials: 'include',
         headers: {
             'Content-Type': 'application/json',
-            'XSRF-TOKEN': getCSRFTokenCookie(),
+            'XSRF-TOKEN': getToken('XSRF-TOKEN'),
             'access-token': "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiMzcwODcxNmYtMmFhNy00M2EwLTk0M2MtMDRkMDk2ZjNiN2UwIiwidXNlck5hbWUiOiJ0ZXN0IiwiZW1haWwiOiJ0ZXN0QHRlc3QuY29tIn0sImlhdCI6MTcxMjcwNzM4NywiZXhwIjoxNzEyNzA3NDQ3fQ.ym4o6jnEh4v7SgkcmHVOPn_nUT2S1qk-VUC8cqPbCf0"
         },
         body: JSON.stringify(body)
