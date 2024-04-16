@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <header>
+    <header class="public">
         <div class="video-container">
             <video id="heroVideo" class="video-bg" autoplay muted>
                 <!-- <source src="/assets/video/3201633-hd_1920_1080_25fps.mp4" type="video/mp4"> -->
@@ -66,14 +66,14 @@
             <div>
                 <div class="cards">
                 </div>
-                <!-- <div>
+                <div class="hidden">
                     <button type="button" id="prev">
                         <img src="/assets/images/arrow.png" alt="">
                     </button>
                     <button type="button" id="next">
                         <img src="/assets/images/next.png" alt="">
                     </button>
-                </div> -->
+                </div>
                 <div>
                     <button type="button" id="readMore">Read more</button>
                 </div>
@@ -105,8 +105,10 @@
         copyright @copyright 2024
     </footer>
 
+    <script src="/js/utils/csrf.js"></script>
     <script src="/js/utils/loadNews.js"></script>
     <script src="/js/utils/homePage.utils.js"></script>
+    <script src="/js/components/home.components.js"></script>
 </body>
 
 </html>
