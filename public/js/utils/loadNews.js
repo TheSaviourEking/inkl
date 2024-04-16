@@ -1,3 +1,4 @@
+const loggedIn = !!getToken('access-token');
 document.addEventListener('DOMContentLoaded', () => {
     getNews();
 })
@@ -15,7 +16,7 @@ const NEWS_APIS = {
     theNewsApi: '/js/data.json'
 };
 
-const loggedIn = false;
+
 const getNews = () => {
     getNewsData('/js/dataGnews.json');
 }
@@ -28,7 +29,7 @@ const getNewsData = async (source) => {
                 const res = await fetch('/js/dataGnews.json');
                 if (res.ok) {
                     const data = await res.json();
-                    console.log('data---', data.articles)
+                    // console.log('data---', data.articles)
                     // newsData = data['articles'];
                     newsData = data.articles;
                     break;
@@ -40,25 +41,25 @@ const getNewsData = async (source) => {
                 if (res2.ok) {
                     const data = await res2.json();
                     newsData = data.data;
-                    console.log('data2', data)
+                    // console.log('data2', data)
                     break;
                 }
         }
     } catch (err) {
         console.error(err);
     } finally {
-        displayNews(source, newsData);
+        displayNews(newsData);
     }
 }
 
-const displayNews = (source, newsData) => {
+const displayNews = (newsData) => {
     let string = '';
     let totalDisplay = 3;
     if (loggedIn) {
-        totalDisplay = newsData.length;
+        totalDisplay = 9 || newsData.length;
     }
 
-    console.log(loggedIn, totalDisplay);
+    // console.log(loggedIn, totalDisplay);
     const indexes = [];
     for (let data = 0; data < totalDisplay; data++) {
         let newsIndex = parseInt(Math.random() * newsData.length);
@@ -71,23 +72,22 @@ const displayNews = (source, newsData) => {
         }
         indexes.push(newsIndex);
     }
-    console.log(indexes)
+    // console.log(indexes)
 
     for (let news = 0; news < indexes.length; news++) {
-        const data = newsData;
-        const randomNews = data[indexes[news]];
+        const data = newsData[indexes[news]];
+        const randomNews = shapeData(data);
         // console.log(randomNews)
         string += `
-                <a href=${randomNews.url}>
+                <a href=${randomNews.url} class='link'>
                     <div class="card">
                         <div class="card-image">
                             <img src=${randomNews.image} alt="">
                         </div>
                         <div class="card-content">
                             <h3>${randomNews.title}</h3> 
-                            <p>${randomNews.description}</p>
-                            <span>${randomNews.publishedAt}</span> 
-                            <span><a href=${randomNews.source.url}>${randomNews.source.url}</a></span>              
+                            <span>${randomNews.publishedAt}</span>  
+                            <span>${randomNews.source.name}</span>          
                         </div>
                     </div>
                 </a>
@@ -95,4 +95,18 @@ const displayNews = (source, newsData) => {
     }
     // console.log(string)
     newsCards.innerHTML = string;
+}
+
+const shapeData = (data) => {
+    return {
+        url: data.url ? data.url : '',
+        image: data.image ? data.image : data.image_url,
+        title: data.title ? data.title : 'title unavailable at this time',
+        description: data.description ? data.description : 'no description at this time',
+        publishedAt: data.publishedAt ? data.publishedAt : data.published_at,
+        source: {
+            name: data.source.name ? data.source.name : data.source.slice(0, data.source.indexOf('.')),
+            url: data.source.url ? data.source.url : 'https://' + data.source
+        }
+    }
 }
