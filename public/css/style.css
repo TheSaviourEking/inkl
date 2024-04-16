@@ -198,49 +198,36 @@ main>section>div:last-child {
     justify-content: center;
     flex-wrap: wrap;
     gap: 1rem;
-    width: 100%;
-    position: relative;
+}
+
+.link {
+    flex: 1;
+    flex-basis: 30%;
+    display: flex;
+    align-self: normal;
+    justify-content: center;
+    max-width: 25rem;
 }
 
 .card {
-    flex: 1;
-    flex-basis: 15%;
     border-radius: 0.8rem;
-    border-radius: 2rem;
-    border: none;
-    text-align: center;
-    width: fit-content;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    max-width: 20rem;
-    align-self: normal;
-    position: relative;
-    padding: 2rem 1rem;
 }
 
 .card-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    z-index: -1;
-    object-fit: cover;
-    object-position: center;
+    height: 60%;
+    max-height: 60%;
+    min-height: 60%;
 }
 
-.card img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    object-fit: cover;
-    object-position: center;
-    z-index: -1;
+.card-image img {
+    border-radius: 1rem 1rem 0 0;
 }
 
 .card-content {
-    z-index: 3;
+    /* height: 50%; */
+    padding: 1rem 0.4rem;
 }
 
 section.why-us {
@@ -407,4 +394,12 @@ a:active {
     color: #000;
     text-decoration: none;
     cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+.public {
+    display: block;
 }
