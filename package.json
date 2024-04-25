@@ -1,0 +1,25 @@
+{
+  "name": "inkl",
+  "version": "1.0.0",
+  "description": "Inkl is your personalized news curator, designed to cut through the noise and deliver the stories that matter most to you.  Imagine a news experience that learns your preferences and surfaces articles that spark your curiosity. That's Inkl.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install": "npm --prefix authenticate-me/backend install authenticate-me/backend",
+    "dev:backend": "npm install --prefix authenticate-me/backend start",
+    "sequelize": "npm run --prefix authenticate-me/backend sequelize",
+    "sequelize-cli": "npm run --prefix authenticate-me/backend sequelize-cli",
+    "start": "npm start --prefix authenticate-me/backend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheSaviourEking/practice-for-week-12-authenticate-me-long-practice.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TheSaviourEking/practice-for-week-12-authenticate-me-long-practice/issues"
+  },
+  "homepage": "https://github.com/TheSaviourEking/practice-for-week-12-authenticate-me-long-practice#readme"
+}
